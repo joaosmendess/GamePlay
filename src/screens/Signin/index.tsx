@@ -9,6 +9,8 @@ import { View,
 import { styles } from './style';
 
 import IlustrationImg from '../../assets/illustration.png'
+import { ButtonIcon } from '../../components/ButtonIcon';
+
 
 export  function Signin() {
     const [text, setText] = useState('');
@@ -36,6 +38,12 @@ export  function Signin() {
    Crie grupos para jogar seus games {`\n`}
 favoritos com seus amigos
    </Text>
+
+<ButtonIcon 
+title='Entrar com Discord'
+activeOpacity={0.7}
+
+/>
 
     </View>
 </View>
