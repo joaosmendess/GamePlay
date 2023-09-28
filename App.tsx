@@ -9,9 +9,9 @@ import {
   Rajdhani_700Bold,
 } from "@expo-google-fonts/rajdhani";
 
-
 import { Signin } from "./src/screens/Signin";
 import { StatusBar } from "react-native";
+import { Background } from "./src/components/Background";
 
 // Componente principal da aplicação
 export default function App() {
@@ -33,7 +33,6 @@ export default function App() {
   useEffect(() => {
     async function prepare() {
       try {
-       
       } catch (e) {
         // Imprime um aviso no console se houver um erro
         console.warn(e);
@@ -61,8 +60,14 @@ export default function App() {
   }
 
   // Renderiza o componente Signin passando a função onLayout como prop
-  return  <><StatusBar
-    barStyle="light-content"
-    backgroundColor="transparent"
-    translucent /><Signin onLayout={onLayoutRootView} /></>;
+  return (
+    <Background>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      <Signin onLayout={onLayoutRootView} />
+    </Background>
+  );
 }
