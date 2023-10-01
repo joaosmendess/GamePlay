@@ -23,7 +23,7 @@ export function Signin({ onLayout }: SigninProps) {
 
       <View style={styles.content}>
         <Text style={styles.title}>
-          Conecte-se e organize {`\n`}suas jogatinas 
+          Conecte-se e organize {`\n`}suas jogatinas
         </Text>
 
         <Text style={styles.subtitle}>

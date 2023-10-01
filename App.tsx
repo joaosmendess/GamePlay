@@ -12,6 +12,7 @@ import {
 import { Signin } from "./src/screens/Signin";
 import { StatusBar } from "react-native";
 import { Background } from "./src/components/Background";
+import { Home } from "./src/screens/Home";
 
 // Componente principal da aplicação
 export default function App() {
@@ -27,38 +28,7 @@ export default function App() {
   });
 
   // Previne o ocultamento automático da splash screen até que tudo esteja carregado
-  SplashScreen.preventAutoHideAsync();
-
-  // Usando useEffect para executar funções de inicialização
-  useEffect(() => {
-    async function prepare() {
-      try {
-      } catch (e) {
-        // Imprime um aviso no console se houver um erro
-        console.warn(e);
-      } finally {
-        // Define appIsReady como true independentemente de erros
-        setAppIsReady(true);
-      }
-    }
-
-    // Chama a função prepare
-    prepare();
-  }, []);
-
-  // Função que é chamada quando o layout da raiz é montado, esconde a splash screen
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady && fontsLoaded) {
-      // Esconde a splash screen uma vez que a aplicação está pronta e as fontes estão carregadas
-      await SplashScreen.hideAsync();
-    }
-  }, [appIsReady, fontsLoaded]);
-
-  // Renderiza null (nada) se a aplicação não está pronta ou as fontes não estão carregadas
-  if (!appIsReady || !fontsLoaded) {
-    return null;
-  }
-
+ 
   // Renderiza o componente Signin passando a função onLayout como prop
   return (
     <Background>
@@ -67,7 +37,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Signin onLayout={onLayoutRootView} />
+<Home/>
     </Background>
   );
 }
