@@ -8,11 +8,11 @@ import {
   Rajdhani_500Medium,
   Rajdhani_700Bold,
 } from "@expo-google-fonts/rajdhani";
+import  {Routes} from './src/routes'
 
 import { Signin } from "./src/screens/Signin";
 import { StatusBar } from "react-native";
 import { Background } from "./src/components/Background";
-import { Home } from "./src/screens/Home";
 
 // Componente principal da aplicação
 export default function App() {
@@ -28,7 +28,7 @@ export default function App() {
   });
 
   // Previne o ocultamento automático da splash screen até que tudo esteja carregado
-  SplashScreen.preventAutoHideAsync();
+ // SplashScreen.preventAutoHideAsync();
 
   // Usando useEffect para executar funções de inicialização
   useEffect(() => {
@@ -40,6 +40,10 @@ export default function App() {
       } finally {
         // Define appIsReady como true independentemente de erros
         setAppIsReady(true);
+
+        if (appIsReady && fontsLoaded) {
+          await onLayoutRootView();
+        }
       }
     }
 
@@ -50,7 +54,9 @@ export default function App() {
   // Função que é chamada quando o layout da raiz é montado, esconde a splash screen
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady && fontsLoaded) {
-      // Esconde a splash screen uma vez que a aplicação está pronta e as fontes estão carregadas
+      // Adicione um atraso
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log("Hiding splash screen");
       await SplashScreen.hideAsync();
     }
   }, [appIsReady, fontsLoaded]);
@@ -62,13 +68,14 @@ export default function App() {
 
   // Renderiza o componente Signin passando a função onLayout como prop
   return (
-    <Background>
+    <>
       <StatusBar
         barStyle="light-content"
         backgroundColor="transparent"
         translucent
       />
-<Home/>
-    </Background>
+    <Routes />
+    </>
+    
   );
 }

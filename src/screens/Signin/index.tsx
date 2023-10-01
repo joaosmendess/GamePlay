@@ -4,16 +4,25 @@ import { View, Text, Image, LayoutChangeEvent } from "react-native";
 import { styles } from "./style";
 import IlustrationImg from "../../assets/illustration.png";
 import { ButtonIcon } from "../../components/ButtonIcon";
+import { RootStackParamList } from '../../routes/types/types'; 
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native'
 
-interface SigninProps {
-  onLayout?: (event: LayoutChangeEvent) => void;
-}
 
-export function Signin({ onLayout }: SigninProps) {
-  const [text, setText] = useState("");
 
+type SigninScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'Signin'
+>;
+
+export function Signin() {
+
+  const navigation = useNavigation<SigninScreenNavigationProp>();
+
+
+ 
   return (
-    <View style={styles.container} onLayout={onLayout}>
+    <View style={styles.container} >
      
       <Image
         source={IlustrationImg}
@@ -31,7 +40,7 @@ export function Signin({ onLayout }: SigninProps) {
           favoritos com seus amigos
         </Text>
 
-        <ButtonIcon title="Entrar com Discord" activeOpacity={0.7} />
+        <ButtonIcon title="Entrar com Discord" activeOpacity={0.7} onPress={() => navigation.navigate('Home')}/>
       </View>
     </View>
   );
