@@ -1,10 +1,20 @@
 import { StyleSheet } from "react-native";
-import {getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 export const styles =StyleSheet.create ({
     container: {
-        flex:1,
+        width:49,
+        height:49,
+        borderRadius:8,
+        alignItems:'center',
+        justifyContent:"center",
+        marginRight:22,
+
 
     },
+    avatar:{
+width:46,
+        height:46,
+        borderRadius:8,
+    }
   
 });
