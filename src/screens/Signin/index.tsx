@@ -32,7 +32,7 @@ export function Signin() {
 
       <View style={styles.content}>
         <Text style={styles.title}>
-          Conecte-se e organize {`\n`}suas jogatinas
+          Conecte-se e organize {`\n`}suas jogatina
         </Text>
 
         <Text style={styles.subtitle}>

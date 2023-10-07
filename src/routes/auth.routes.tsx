@@ -18,11 +18,13 @@ export function AuthRoutes(){
         initialRouteName="Signin" 
         screenOptions={{
             contentStyle:{
-                backgroundColor:'transparent'
+                backgroundColor:'transparent',
+                
             },
            headerTransparent: true,
            animation:'simple_push',
-           animationDuration:900
+           animationDuration:900,
+           headerTitle:''
            
            
            

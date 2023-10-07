@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import { styles } from "./style";
 import { Avatar } from "../Avatar";
+import { ButtonAdd } from "../ButtonAdd";
 
 export function Profile() {
   return (
