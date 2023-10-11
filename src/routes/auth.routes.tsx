@@ -20,9 +20,10 @@ export function AuthRoutes(){
             contentStyle:{
                 backgroundColor:'transparent',
                 
+                
             },
            headerTransparent: true,
-           animation:'simple_push',
+           animation:'fade',
            animationDuration:900,
            headerTitle:''
            
